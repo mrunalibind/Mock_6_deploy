@@ -13,6 +13,9 @@ let auth=async(req,res,next)=>{
                 }
             })
         }
+        else{
+            res.send("Unauthorized, Login First")
+        }
     } catch (error) {
         res.status(500).send({msg:error.message});
     }

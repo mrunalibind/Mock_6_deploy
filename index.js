@@ -14,12 +14,9 @@ app.use(express.json());
 
 
 app.use("/user",userRouter)
-app.use(auth())
+app.use(auth)
 app.use("/blog",blogRouter)
 
-app.get("/",(req,res)=>{
-    res.send("Home Page working Fine")
-})
 
 app.listen(8090,async()=>{
     try {
