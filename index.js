@@ -6,14 +6,15 @@ let cors=require("cors");
 const { blogRouter } = require("./routes/blog_route");
 const { auth } = require("./middleware/auth");
 const cookie=require("cookie-parser");
-app.use(cookie())
 app.use(cors());
+app.use(cookie())
+
 
 app.use(express.json());
 
 
 app.use("/user",userRouter)
-app.use(auth)
+app.use(auth())
 app.use("/blog",blogRouter)
 
 app.get("/",(req,res)=>{
@@ -22,7 +23,7 @@ app.get("/",(req,res)=>{
 
 app.listen(8090,async()=>{
     try {
-        await connection
+        await connection;
         console.log("Connected to mongoDB")
     } catch (error) {
         console.log(error)
