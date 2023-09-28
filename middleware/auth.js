@@ -2,7 +2,7 @@ let jwt=require("jsonwebtoken");
 
 let auth=async(req,res,next)=>{
     try {
-        let token=req.headers.authorization.split(" ")[1];
+        let token=req.headers.authorization;
       
         if(token){
             jwt.verify(token,"privatekey",(err,decoded)=>{
